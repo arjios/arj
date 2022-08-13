@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +20,10 @@ public class Account {
 	private Double balance;
 	private Instant date;
 	private boolean status;
+	
+	@ManyToOne
+    @JoinColumn(name="unit_id", nullable = false)
+	private Unit unit;
 	
 	public Account() {
 	}
